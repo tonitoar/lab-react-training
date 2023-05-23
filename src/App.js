@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import berlin from './data/berlin.json';
+
 import './App.css';
+
+import IdCard from './components/IdCard.jsx';
+/* import Greetings from "./components/Greetings.jsx";
+import Random from "./components/Random.jsx";
+import BoxColor from "./components/BoxColor.jsx";
+import CreditCard from "./components/CreditCard.jsx";
+import Rating from "./components/Rating.jsx" */ //console.log(berlin)
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        <ol>
+          {berlin.map((person, k) => (
+            <IdCard
+              key={k}
+              firstName={person.firstName}
+              lastName={person.lastName}
+              gender="" // Add a default value for gender
+              height={0} // Add a default value for height
+              birth={20} // Add a default value for birth as a current date
+              picture={person.img}
+            />
+          ))}
+        </ol>
+      }
+
+      {/*       <Greetings />
+      <Random />
+      <BoxColor />
+      <CreditCard />
+      <Rating /> */}
     </div>
   );
 }
